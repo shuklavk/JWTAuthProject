@@ -127,8 +127,10 @@ app.post('/protected', async (req, res) => {
 app.post('/refresh_token', (req, res) => {
   // Possible because of cookie parser
   const token = req.cookies.refreshToken;
+  // console.log(req.cookies)
   // If we don't have a token in our request
   if (!token) {
+    // console.log('NO TOKEN IN REQUEST');
     return res.send({ accesstoken: '' });
   }
   // otherwise we have a token, so need to verify
